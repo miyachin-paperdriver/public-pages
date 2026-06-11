@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DepthScope Privacy Policy</title>
+  <meta
+    name="description"
+    content="Privacy Policy for DepthScope, an iPhone and iPad app that compares LiDAR depth data with on-device depth estimation results."
+  />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #f4efe7;
+      --bg-bottom: #dfe9ef;
+      --panel: rgba(255, 252, 247, 0.88);
+      --panel-strong: rgba(255, 252, 247, 0.96);
+      --text: #153047;
+      --muted: #5f7486;
+      --accent: #0d7c7a;
+      --accent-deep: #0f5f66;
+      --line: rgba(21, 48, 71, 0.12);
+      --shadow: 0 22px 54px rgba(21, 48, 71, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(13, 124, 122, 0.18), transparent 24%),
+        radial-gradient(circle at 84% 12%, rgba(223, 160, 89, 0.2), transparent 24%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(12px);
+      opacity: 0.48;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 240px;
+      height: 240px;
+      right: -64px;
+      bottom: 12vh;
+      background: rgba(13, 124, 122, 0.14);
+    }
+
+    body::after {
+      width: 180px;
+      height: 180px;
+      left: -42px;
+      top: 18vh;
+      background: rgba(223, 160, 89, 0.16);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(980px, calc(100vw - 32px));
+      margin: 32px auto 56px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero,
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.8fr);
+      gap: 24px;
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(13, 124, 122, 0.1);
+      color: var(--accent-deep);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(34px, 5vw, 58px);
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      max-width: 38rem;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .meta-stack {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .meta-box {
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    .meta-value a {
+      color: var(--accent-deep);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15, 95, 102, 0.24);
+    }
+
+    .jump-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .jump-list a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card {
+      padding: 26px 28px;
+    }
+
+    .card + .card {
+      margin-top: 2px;
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .policy-block {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(21, 48, 71, 0.08);
+    }
+
+    .policy-block h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .policy-block p,
+    .policy-block li {
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .policy-block p {
+      margin: 0;
+    }
+
+    .policy-block ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .policy-block li + li {
+      margin-top: 6px;
+    }
+
+    .notice {
+      padding: 18px 20px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(13, 124, 122, 0.12), rgba(255, 255, 255, 0.76));
+      border: 1px solid rgba(13, 124, 122, 0.18);
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+    }
+
+    footer {
+      padding: 4px 2px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 780px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">DepthScope Privacy Policy</span>
+          <h1>Privacy Policy</h1>
+          <p>
+            This page explains how DepthScope handles camera images, LiDAR depth data,
+            local storage, and report export. The current app is designed for on-device
+            processing on LiDAR-capable iPhone and iPad hardware.
+          </p>
+          <div class="jump-list">
+            <a href="#ja">Japanese</a>
+            <a href="#en">English</a>
+          </div>
+        </div>
+        <aside class="meta-stack">
+          <div class="meta-box">
+            <span class="meta-label">App</span>
+            <div class="meta-value">DepthScope</div>
+          </div>
+          <div class="meta-box">
+            <span class="meta-label">Last Updated</span>
+            <div class="meta-value">2026-06-11</div>
+          </div>
+          <div class="meta-box">
+            <span class="meta-label">Public Contact Route</span>
+            <div class="meta-value">
+              <a href="https://github.com/miyachin-paperdriver">github.com/miyachin-paperdriver</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="card" id="ja">
+      <div class="card-header">
+        <h2>Privacy Policy / 日本語</h2>
+        <p>DepthScope プライバシーポリシー</p>
+      </div>
+      <div class="grid">
+        <div class="notice">
+          <strong>概要</strong>
+          DepthScope は、LiDAR 対応の iPhone / iPad で撮影した RGB 画像と深度データを使い、端末上で深度推定結果の比較とレポート生成を行うアプリです。
+        </div>
+
+        <div class="policy-block">
+          <h3>1. 利用するデータ</h3>
+          <ul>
+            <li>背面カメラで撮影した画像</li>
+            <li>LiDAR センサーから取得した深度データ</li>
+            <li>端末内で生成される比較結果、履歴、エクスポート用レポート</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>2. データの扱い</h3>
+          <p>
+            アプリ内の撮影、深度比較、レポート生成は、現行バージョンでは端末上で実行されます。開発者が運営する外部サーバーへ、撮影画像や深度データを自動送信する仕様ではありません。
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>3. 端末内保存</h3>
+          <p>
+            撮影画像、深度データ、比較履歴、生成レポートの一部は、アプリ動作のために端末内の一時領域またはアプリ専用保存領域に保存されることがあります。これらはユーザー自身による履歴削除やアプリ削除によって消去できます。
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>4. レポートの共有</h3>
+          <p>
+            ユーザーが明示的にエクスポート操作を行った場合、アプリは HTML レポートを生成し、iOS / iPadOS の共有シートを通じて他のアプリやクラウドサービスへ渡せます。共有後のデータ取り扱いは、送信先サービスのプライバシーポリシーに従います。
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>5. 収集しないもの</h3>
+          <ul>
+            <li>アカウント登録情報</li>
+            <li>広告識別子を用いたトラッキング</li>
+            <li>行動分析用の広告 SDK や解析 SDK による自動収集</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>6. 子どもの個人情報</h3>
+          <p>
+            本アプリは子ども向けサービスとして設計されておらず、開発者が子どもの個人情報を意図的に収集することはありません。
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>7. ポリシーの変更</h3>
+          <p>
+            本ポリシーは、アプリの機能変更や法令対応に応じて更新される場合があります。重要な変更がある場合は、このページの更新日を変更してお知らせします。
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>8. お問い合わせ</h3>
+          <p>
+            プライバシーに関するお問い合わせは、App Store のサポート情報、または公開されている開発者プロフィール
+            <a href="https://github.com/miyachin-paperdriver">github.com/miyachin-paperdriver</a>
+            を通じてご連絡ください。必要に応じて、公開用メールアドレスや専用サポートページへ差し替えてください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="en">
+      <div class="card-header">
+        <h2>Privacy Policy / English</h2>
+        <p>DepthScope privacy notice for App Store distribution</p>
+      </div>
+      <div class="grid">
+        <div class="notice">
+          <strong>Summary</strong>
+          DepthScope captures RGB images and LiDAR depth data on supported iPhone and iPad devices, compares depth estimation results on-device, and lets the user export reports.
+        </div>
+
+        <div class="policy-block">
+          <h3>1. Data used by the app</h3>
+          <ul>
+            <li>Images captured by the rear camera</li>
+            <li>Depth data captured by the LiDAR sensor</li>
+            <li>Locally generated comparison results, history entries, and exported reports</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>2. How the app processes data</h3>
+          <p>
+            In the current version, image capture, depth comparison, and report generation run on the device. The app is not designed to automatically upload captured images or depth maps to developer-operated servers.
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>3. Local storage</h3>
+          <p>
+            Captured images, depth maps, history entries, and generated report files may be stored in the app's local storage areas so the app can function correctly. A user can remove this data by deleting history inside the app or uninstalling the app.
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>4. Export and sharing</h3>
+          <p>
+            When the user explicitly exports a report, the app creates an HTML file and hands it to the iOS or iPadOS share sheet. Once the user sends that file to another app, cloud service, or device, the destination service's privacy policy governs further handling.
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>5. Data not collected for tracking</h3>
+          <ul>
+            <li>No account registration data is required</li>
+            <li>No advertising identifier tracking is used</li>
+            <li>No advertising SDK or analytics SDK is intentionally integrated for automatic behavioral collection in the current app codebase</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>6. Children</h3>
+          <p>
+            This app is not designed as a children's service, and the developer does not intentionally collect personal information from children through the app.
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>7. Changes to this policy</h3>
+          <p>
+            This policy may be updated if the app's functionality changes or if legal requirements change. Material updates will be reflected by updating the date shown on this page.
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>8. Contact</h3>
+          <p>
+            For privacy-related questions, use the public support route shown on the App Store product page or the public developer profile at
+            <a href="https://github.com/miyachin-paperdriver">github.com/miyachin-paperdriver</a>.
+            Before final publication, you may replace this with a dedicated support email address or support page if you prefer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      This page is intended to be published as a standalone GitHub Pages site for App Store metadata.<br />
+      If you host it in a separate public repository under <strong>miyachin-paperdriver</strong>, you can use the resulting URL directly in App Store Connect.
+    </footer>
+  </main>
+</body>
+</html>
