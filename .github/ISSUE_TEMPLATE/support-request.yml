@@ -1,0 +1,86 @@
+name: Support request
+description: Ask for help with capture, processing, report viewing, or export in DepthScope.
+title: "[Support]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for opening a support request.
+
+        Before submitting, please confirm that you have checked the public support page and that the issue still needs help from the developer.
+  - type: input
+    id: device-model
+    attributes:
+      label: Device model
+      description: Example: iPhone 15 Pro, iPad Pro 11-inch
+      placeholder: Enter the device model
+    validations:
+      required: true
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version
+      description: Example: iOS 18.1 or iPadOS 18.1
+      placeholder: Enter the OS version
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Example: 1.0.24 (25)
+      placeholder: Enter the app version and build number if available
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which step is affected?
+      options:
+        - Capture
+        - Processing
+        - Report viewing
+        - Export / share sheet
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem clearly and include the steps that lead to it.
+      placeholder: Tell us what you did and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: Tell us what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: error-message
+    attributes:
+      label: Error message or runtime status
+      description: Paste any visible message from the app if you saw one.
+      placeholder: Paste the error message here, if any.
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or extra context
+      description: Add screenshots or extra notes if they help explain the issue and do not contain sensitive data.
+      placeholder: Add any additional details here.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I confirmed this issue is related to DepthScope support, not a private account or billing issue.
+          required: true
+        - label: I reviewed the public support page before submitting.
+          required: true

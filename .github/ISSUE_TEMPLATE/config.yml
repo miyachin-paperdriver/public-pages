@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: DepthScope Support Page
+    url: https://miyachin-paperdriver.github.io/public-pages/depthscope-support/
+    about: Read the public support page before opening an issue.
+  - name: DepthScope Privacy Policy
+    url: https://miyachin-paperdriver.github.io/public-pages/depthscope-privacy-policy/
+    about: Read how DepthScope handles images, depth data, and local report export.

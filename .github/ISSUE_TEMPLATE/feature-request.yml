@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest an improvement for DepthScope.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion.
+
+        Please describe the workflow problem first, then the improvement you want.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the current workflow pain point.
+      placeholder: Explain the problem first.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the feature or improvement you want.
+      placeholder: Explain the change you would like to see.
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Why would this help?
+      description: Describe your use case or expected benefit.
+      placeholder: Explain why this would be useful.
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Add screenshots, examples, or references if helpful.
+      placeholder: Optional extra context.
+    validations:
+      required: false
