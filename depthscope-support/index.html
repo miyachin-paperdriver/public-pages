@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DepthScope Support</title>
+  <meta
+    name="description"
+    content="Support page for DepthScope, including supported devices, contact routes, and links to the privacy policy."
+  />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #f3efe4;
+      --bg-bottom: #dce7ef;
+      --panel: rgba(255, 252, 247, 0.9);
+      --panel-strong: rgba(255, 252, 247, 0.97);
+      --text: #17324a;
+      --muted: #607486;
+      --accent: #106e73;
+      --accent-soft: rgba(16, 110, 115, 0.1);
+      --line: rgba(23, 50, 74, 0.12);
+      --shadow: 0 22px 54px rgba(23, 50, 74, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(16, 110, 115, 0.18), transparent 24%),
+        radial-gradient(circle at 86% 12%, rgba(223, 160, 89, 0.2), transparent 24%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(12px);
+      opacity: 0.46;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 240px;
+      height: 240px;
+      right: -70px;
+      bottom: 12vh;
+      background: rgba(16, 110, 115, 0.13);
+    }
+
+    body::after {
+      width: 180px;
+      height: 180px;
+      left: -40px;
+      top: 18vh;
+      background: rgba(223, 160, 89, 0.16);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(980px, calc(100vw - 32px));
+      margin: 32px auto 56px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero,
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.8fr);
+      gap: 24px;
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(34px, 5vw, 58px);
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      max-width: 40rem;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .button-row,
+    .jump-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button-row a,
+    .jump-list a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button-row a.primary {
+      background: var(--accent);
+      color: white;
+      border-color: rgba(16, 110, 115, 0.25);
+    }
+
+    .meta-stack {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .meta-box,
+    .info-box {
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .meta-value,
+    .meta-value a {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .meta-value a,
+    .policy-block a,
+    .info-box a {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(16, 110, 115, 0.24);
+    }
+
+    .card {
+      padding: 26px 28px;
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .policy-block {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(23, 50, 74, 0.08);
+    }
+
+    .policy-block h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .policy-block p,
+    .policy-block li,
+    .info-box p,
+    .info-box li {
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .policy-block p,
+    .info-box p {
+      margin: 0;
+    }
+
+    .policy-block ul,
+    .info-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .policy-block li + li,
+    .info-box li + li {
+      margin-top: 6px;
+    }
+
+    .notice {
+      padding: 18px 20px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(16, 110, 115, 0.12), rgba(255, 255, 255, 0.78));
+      border: 1px solid rgba(16, 110, 115, 0.18);
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+    }
+
+    footer {
+      padding: 4px 2px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 780px) {
+      .hero-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">DepthScope Support</span>
+          <h1>Support</h1>
+          <p>
+            This page provides public support information for DepthScope, including supported devices,
+            support routes, and links to related policy pages for App Store distribution.
+          </p>
+          <div class="button-row">
+            <a class="primary" href="https://github.com/miyachin-paperdriver/public-pages/issues">Open Support Issue</a>
+            <a href="../depthscope-privacy-policy/">Privacy Policy</a>
+          </div>
+          <div class="jump-list">
+            <a href="#ja">Japanese</a>
+            <a href="#en">English</a>
+          </div>
+        </div>
+        <aside class="meta-stack">
+          <div class="meta-box">
+            <span class="meta-label">App</span>
+            <div class="meta-value">DepthScope</div>
+          </div>
+          <div class="meta-box">
+            <span class="meta-label">Last Updated</span>
+            <div class="meta-value">2026-06-16</div>
+          </div>
+          <div class="meta-box">
+            <span class="meta-label">Support Channels</span>
+            <div class="meta-value">
+              <a href="https://github.com/miyachin-paperdriver/public-pages/issues">GitHub Issues</a><br />
+              <a href="https://github.com/miyachin-paperdriver">GitHub Profile</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Quick Support Notes</h2>
+        <p>Useful for App Store support and first-line troubleshooting</p>
+      </div>
+      <div class="two-col">
+        <div class="info-box">
+          <h3>Supported hardware</h3>
+          <ul>
+            <li>LiDAR-capable iPhone or iPad</li>
+            <li>Rear camera access enabled</li>
+            <li>Apple Vision Pro and Mac distribution are intentionally disabled</li>
+          </ul>
+        </div>
+        <div class="info-box">
+          <h3>When contacting support</h3>
+          <ul>
+            <li>Describe the device model and iOS or iPadOS version</li>
+            <li>Describe what step failed: capture, processing, or export</li>
+            <li>Include screenshots if they do not expose sensitive content</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="ja">
+      <div class="card-header">
+        <h2>Support / 日本語</h2>
+        <p>DepthScope サポート案内</p>
+      </div>
+      <div class="grid">
+        <div class="notice">
+          <strong>概要</strong>
+          DepthScope は LiDAR 対応 iPhone / iPad 向けの深度比較アプリです。サポートが必要な場合は、このページの公開リンクからお問い合わせください。
+        </div>
+
+        <div class="policy-block">
+          <h3>1. サポート窓口</h3>
+          <ul>
+            <li><a href="https://github.com/miyachin-paperdriver/public-pages/issues">GitHub Issues</a> に問い合わせ内容を投稿する</li>
+            <li><a href="https://github.com/miyachin-paperdriver">開発者 GitHub プロフィール</a> を確認する</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>2. 対応端末</h3>
+          <p>
+            本アプリは LiDAR センサーを搭載した iPhone / iPad を前提にしています。LiDAR 非対応端末では、想定どおり動作しない、または一部機能が使えない場合があります。
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>3. よくある確認ポイント</h3>
+          <ul>
+            <li>カメラ権限が有効になっているか</li>
+            <li>背面カメラと LiDAR を使える端末か</li>
+            <li>処理後のレポートを共有シート経由でエクスポートしているか</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>4. 問い合わせ時に含めてほしい情報</h3>
+          <ul>
+            <li>端末名と OS バージョン</li>
+            <li>どの操作で問題が発生したか: 撮影、処理、レポート表示、エクスポート</li>
+            <li>表示されたエラーメッセージ</li>
+            <li>必要に応じてスクリーンショット</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>5. 関連リンク</h3>
+          <ul>
+            <li><a href="../depthscope-privacy-policy/">Privacy Policy</a></li>
+            <li><a href="https://github.com/miyachin-paperdriver/public-pages">Public Pages Repository</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="en">
+      <div class="card-header">
+        <h2>Support / English</h2>
+        <p>DepthScope support information for App Store users</p>
+      </div>
+      <div class="grid">
+        <div class="notice">
+          <strong>Summary</strong>
+          DepthScope is a depth comparison app for LiDAR-capable iPhone and iPad devices. Use the public links on this page if you need help.
+        </div>
+
+        <div class="policy-block">
+          <h3>1. Support channels</h3>
+          <ul>
+            <li>Open a request through <a href="https://github.com/miyachin-paperdriver/public-pages/issues">GitHub Issues</a></li>
+            <li>Check the public developer profile at <a href="https://github.com/miyachin-paperdriver">github.com/miyachin-paperdriver</a></li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>2. Supported devices</h3>
+          <p>
+            This app is intended for iPhone and iPad devices that include a LiDAR sensor. On unsupported hardware, the app may not function as intended or some features may be unavailable.
+          </p>
+        </div>
+
+        <div class="policy-block">
+          <h3>3. Common first checks</h3>
+          <ul>
+            <li>Confirm that camera access is allowed</li>
+            <li>Confirm that the device supports the rear camera and LiDAR workflow required by the app</li>
+            <li>Confirm that report export is being performed through the system share sheet</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>4. Information to include in a support request</h3>
+          <ul>
+            <li>Device model and OS version</li>
+            <li>Which step failed: capture, processing, report display, or export</li>
+            <li>The error message shown by the app, if any</li>
+            <li>Screenshots when appropriate and safe to share</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>5. Related links</h3>
+          <ul>
+            <li><a href="../depthscope-privacy-policy/">Privacy Policy</a></li>
+            <li><a href="https://github.com/miyachin-paperdriver/public-pages">Public Pages Repository</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      This page is intended to be published from the same GitHub Pages site as the privacy policy.<br />
+      Recommended public URL: <strong>https://miyachin-paperdriver.github.io/public-pages/depthscope-support/</strong>
+    </footer>
+  </main>
+</body>
+</html>
