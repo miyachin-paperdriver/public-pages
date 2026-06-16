@@ -12,7 +12,7 @@ body:
     id: device-environment
     attributes:
       label: Device model and OS version
-      description: Example: iPhone 15 Pro, iOS 18.1
+      description: "Example: iPhone 15 Pro, iOS 18.1"
       placeholder: Tell us the device model and OS version.
     validations:
       required: true
@@ -20,7 +20,7 @@ body:
     id: app-version
     attributes:
       label: App version
-      description: Example: 1.0.24 (25)
+      description: "Example: 1.0.24 (25)"
       placeholder: Enter the app version and build number if available.
     validations:
       required: false
@@ -28,7 +28,7 @@ body:
     id: affected-step
     attributes:
       label: Which step is affected?
-      description: Example: capture, processing, report viewing, export, or another step.
+      description: "Example: capture, processing, report viewing, export, or another step."
       placeholder: Tell us which step is affected.
     validations:
       required: true
