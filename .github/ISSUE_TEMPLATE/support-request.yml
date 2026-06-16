@@ -8,40 +8,28 @@ body:
         Thanks for opening a support request.
 
         Before submitting, please confirm that you have checked the public support page and that the issue still needs help from the developer.
-  - type: input
-    id: device-model
+  - type: textarea
+    id: device-environment
     attributes:
-      label: Device model
-      description: Example: iPhone 15 Pro, iPad Pro 11-inch
-      placeholder: Enter the device model
+      label: Device model and OS version
+      description: Example: iPhone 15 Pro, iOS 18.1
+      placeholder: Tell us the device model and OS version.
     validations:
       required: true
-  - type: input
-    id: os-version
-    attributes:
-      label: OS version
-      description: Example: iOS 18.1 or iPadOS 18.1
-      placeholder: Enter the OS version
-    validations:
-      required: true
-  - type: input
+  - type: textarea
     id: app-version
     attributes:
       label: App version
       description: Example: 1.0.24 (25)
-      placeholder: Enter the app version and build number if available
+      placeholder: Enter the app version and build number if available.
     validations:
       required: false
-  - type: dropdown
-    id: area
+  - type: textarea
+    id: affected-step
     attributes:
       label: Which step is affected?
-      options:
-        - Capture
-        - Processing
-        - Report viewing
-        - Export / share sheet
-        - Other
+      description: Example: capture, processing, report viewing, export, or another step.
+      placeholder: Tell us which step is affected.
     validations:
       required: true
   - type: textarea
@@ -79,6 +67,7 @@ body:
     id: checks
     attributes:
       label: Confirmation
+      description: Please confirm both items before submitting.
       options:
         - label: I confirmed this issue is related to DepthScope support, not a private account or billing issue.
           required: true
